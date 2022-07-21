@@ -52,9 +52,9 @@ JOIN customers c ON o.customer_id=c.id WHERE last_name = 'Martin' ORDER BY order
 SELECT o.id, o.order_time FROM orders o INNER JOIN customers c ON o.customer_id = c.id WHERE c.gender = 'F' ORDER BY o.order_time BETWEEN '2017-01-01' AND '2017-01-31';
 -- 2.SELECT PRODUCT NAME AND ORDER TIME FOR FILTER COFFEES SOLD BETWEEN JANUARY 15 2017 AN 
 -- FEBRUARY 14 2017
-SELECT p.name, o.order_time FROM products p INNER JOIN orders o ON p.id = o.product_id WHERE o.order_time BETWEEN '2017-01-15' AND '2017-02-14';
+SELECT p.name, o.order_time FROM products p INNER JOIN orders o ON p.id = o.product_id WHERE p.name = 'Filter' AND o.order_time BETWEEN '2017-01-15' AND '2017-02-14';
 -- 3.SLECT THE PRODUCT NAME AND PRICE AND ORDER TIME FOR ALL ORDERS FROM FEMALES IN JANUARY 2017
 SELECT p.name, p.price, o.order_time FROM products p 
 JOIN orders o ON p.id = o.product_id
 JOIN customers c ON o.customer_id = c.id
-WHERE c.gender = 'F' ORDER BY order_time BETWEEN '2017-01-01' AND '2017-02-31';
+WHERE c.gender = 'F' ORDER BY o.order_time BETWEEN '2017-01-01' AND '2017-02-31';
