@@ -1,0 +1,39 @@
+-- DATE FUNCTION
+USE cinema_booking_system;
+
+SELECT DATE("2018-6-05 07:45:32");
+
+SELECT start_time FROM screenings;
+SELECT DATE(start_time) FROM screenings;
+SELECT * FROM screenings 
+WHERE DATE(start_time) = '2017-10-03';
+
+SELECT * FROM screenings 
+WHERE DATE(start_time) BETWEEN '2017-10-03' AND '2017-10-05';
+
+SELECT * FROM screenings 
+WHERE start_time BETWEEN '2017-10-03' AND '2017-10-05';
+
+-- MONTH FUNCTION
+SELECT MONTH("2018-6-05 07:45:32");
+
+SELECT start_time FROM screenings;
+SELECT MONTH(start_time) FROM screenings;
+SELECT DISTINCT DAY(start_time) FROM screenings;
+SELECT * FROM screenings WHERE MONTH(start_time) = 10;
+SELECT * FROM screenings WHERE DAY(start_time) = 10;
+
+-- YEAR FUNCTION
+SELECT YEAR("2018-6-05 07:45:32");
+SELECT YEAR(start_time) FROM screenings;
+SELECT DISTINCT YEAR(start_time) FROM screenings;
+SELECT DISTINCT HOUR(start_time) FROM screenings;
+
+
+-- EXERSISE 2
+-- SELECT THE FILM ID AND START TIME FROM THE SCREENINGS TABLE FOR THE DATE OF 20TH OF OCTOBER 2017
+SELECT film_id, start_time FROM screenings WHERE DATE(start_time) = "2017-10-20";
+-- SELECT ALL THE DATA FROM THE SCREENINGS TABLE FOR THE START TIME BETWEEN THE 6TH AND 13 OF OCTOBER 2017
+SELECT * FROM screenings WHERE DATE(start_time) BETWEEN "2017-10-06" AND "2017-10-13";
+-- SELECT ALL THE DATA FROM THE SCREENINGS TABLE FOR OCTOBER 2017
+SELECT * FROM screenings WHERE MONTH(start_time) = "10";
